@@ -24,7 +24,7 @@ SECRET_KEY = 'jsd904=_7x=7&x47+lrgy82_dsxg$+&h1-ht#m*b^9ag)^&nlg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost ', 'wx.tomwang.club']
 
 # Application definition
 
