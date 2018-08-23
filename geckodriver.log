@@ -243,3 +243,155 @@ Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrp
 1534576528395	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Login.aspx"
 1534576528655	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Login.aspx"
 1534576528656	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026836078	geckodriver	INFO	geckodriver 0.21.0
+1535026836093	geckodriver	INFO	Listening on 127.0.0.1:58259
+1535026839158	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "--disable-gpu" "-foreground" "-no-remote" "-profile" "C:\\Users\\perry\\AppData\\Local\\Temp\\rust_mozprofile.YxwH4RKlemvd"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026841493	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026845121	Marionette	INFO	Listening on port 58272
+1535026845251	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535026845366	Marionette	DEBUG	Register listener.js for window 4294967297
+1535026845599	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026848965	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1535026848966	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1535026850075	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026850087	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026850274	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026850451	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026850452	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026868322	geckodriver	INFO	geckodriver 0.21.0
+1535026868337	geckodriver	INFO	Listening on 127.0.0.1:58344
+1535026871383	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "--disable-gpu" "-foreground" "-no-remote" "-profile" "C:\\Users\\perry\\AppData\\Local\\Temp\\rust_mozprofile.Uq91Sr1oiWGJ"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026873109	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 19400, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026875646	Marionette	INFO	Listening on port 58356
+1535026875723	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535026875804	Marionette	DEBUG	Register listener.js for window 4294967297
+1535026875916	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1535026876003	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1535026876003	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1535026876336	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026876425	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026876540	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026876869	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026876870	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026906883	geckodriver	INFO	geckodriver 0.21.0
+1535026906898	geckodriver	INFO	Listening on 127.0.0.1:58430
+1535026909945	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "--disable-gpu" "-foreground" "-no-remote" "-profile" "C:\\Users\\perry\\AppData\\Local\\Temp\\rust_mozprofile.btgWaKcZO0kT"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026911152	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026914737	Marionette	INFO	Listening on port 58442
+1535026914932	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535026915018	Marionette	DEBUG	Register listener.js for window 4294967297
+1535026915187	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1535026915451	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1535026915452	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1535026915768	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026915847	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026916093	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026916637	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026916638	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026917548	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026917857	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026917895	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026919395	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026919400	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026920126	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026920573	Marionette	DEBUG	Received DOM event "pageshow" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026920623	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026920738	Marionette	DEBUG	Received DOM event "pagehide" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026920739	Marionette	DEBUG	Received DOM event "unload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026920920	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967303"
+1535026921217	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jw.cidp.edu.cn/Student/CourseTimetable/MyCourseTimeTable.aspx"
+1535026921582	Marionette	DEBUG	Received DOM event "pageshow" for "http://jw.cidp.edu.cn/Student/CourseTimetable/MyCourseTimeTable.aspx"
+[Child 17884, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 15996, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1535026938792	geckodriver	INFO	geckodriver 0.21.0
+1535026938844	geckodriver	INFO	Listening on 127.0.0.1:58523
+1535026941807	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "--disable-gpu" "-foreground" "-no-remote" "-profile" "C:\\Users\\perry\\AppData\\Local\\Temp\\rust_mozprofile.AL61w1lzPpeS"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026942859	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 16892, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+[Child 13480, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 13480, Chrome_ChildThUnable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535026946173	Marionette	INFO	Listening on port 58537
+1535026946255	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535026946392	Marionette	DEBUG	Register listener.js for window 4294967297
+1535026946547	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1535026946619	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1535026946620	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1535026946927	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026946973	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026947219	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026947833	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026947835	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535026948285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026948463	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026948480	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026950339	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026950344	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535026950694	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026950909	Marionette	DEBUG	Received DOM event "pageshow" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026950919	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026950923	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026950961	Marionette	DEBUG	Received DOM event "pagehide" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026950961	Marionette	DEBUG	Received DOM event "unload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535026951055	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967303"
+1535026951218	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jw.cidp.edu.cn/Login.aspx"
+1535026951277	Marionette	DEBUG	Received DOM event "pageshow" for "http://jw.cidp.edu.cn/Login.aspx"
+1535027058033	geckodriver	INFO	geckodriver 0.21.0
+1535027058057	geckodriver	INFO	Listening on 127.0.0.1:58733
+1535027061121	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-headless" "--disable-gpu" "-foreground" "-no-remote" "-profile" "C:\\Users\\perry\\AppData\\Local\\Temp\\rust_mozprofile.1u0lQ33XuAxt"
+*** You are running in headless mode.
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535027062736	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 21616, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 9492, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\perry\AppData\Local\openvr\openvrpaths.vrpath
+1535027068685	Marionette	INFO	Listening on port 58745
+1535027069033	Marionette	WARN	TLS certificate errors will be ignored for this session
+1535027069124	Marionette	DEBUG	Register listener.js for window 4294967297
+1535027069218	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1535027069307	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1535027069307	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1535027069834	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535027069861	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535027070105	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535027070540	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535027070541	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Login.aspx"
+1535027070911	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535027071080	Marionette	DEBUG	Received DOM event "pageshow" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535027071110	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535027071602	Marionette	DEBUG	Received DOM event "pagehide" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535027071606	Marionette	DEBUG	Received DOM event "unload" for "http://jwauth.cidp.edu.cn/Student/MyAcademicCareer.aspx"
+1535027071946	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535027072301	Marionette	DEBUG	Received DOM event "pageshow" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535027072317	Marionette	DEBUG	Received DOM event "beforeunload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535027080374	Marionette	DEBUG	Received DOM event "pagehide" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535027080375	Marionette	DEBUG	Received DOM event "unload" for "http://jw.cidp.edu.cn/Navigation/Default.htm"
+1535027080529	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "4294967303"
+1535027080712	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://jw.cidp.edu.cn/Teacher/MarkManagement/StudentAverageMarkSearchFZ.aspx"
+1535027080832	Marionette	DEBUG	Received DOM event "pageshow" for "http://jw.cidp.edu.cn/Teacher/MarkManagement/StudentAverageMarkSearchFZ.aspx"
+[Child 21792, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 21792, Chrome_[Child 1552, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 1552, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
