@@ -1,0 +1,6 @@
+certifi==2018.4.16
+Django==2.0.5
+pytz==2018.5
+selenium==3.14.0
+urllib3==1.23
+wincertstore==0.2
