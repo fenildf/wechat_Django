@@ -58,12 +58,13 @@ def get_timetable(driver):
     table_url = 'http://jw.cidp.edu.cn/Student/CourseTimetable/MyCourseTimeTable.aspx'
     driver.get(table_url)
     time.sleep(3)
+    term = driver.find_element_by_id('lblSemester').get_attribute('innerHTML')
     iframe = driver.find_element_by_id('iframeTimeTable')
     driver.switch_to_frame(iframe)
     table_html = driver.find_element_by_id('tableMain').get_attribute('innerHTML')
     print('find', time.time() - t)
     driver.close()
-    return table_html
+    return term+table_html
 
 
 def get_grade_result(html):
@@ -92,6 +93,7 @@ def get_grade_result(html):
 
 def get_timetable_result(html):
     result = re.compile(r'.*?<tr>(.*?)</tr>.*?', re.S).findall(html)
+    term = re.compile(r'(.*?)学期', re.S).findall(html)[0] + '学期'
     list = []
     class_list = []
     class_set = []
@@ -166,4 +168,4 @@ def get_timetable_result(html):
         search_result.append(m)
         c += 1
 
-    return search_result
+    return term, search_result
