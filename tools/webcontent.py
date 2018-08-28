@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 import random
 import time
 import re
@@ -26,20 +27,19 @@ def open_page(id, pwd):
     name.send_keys(id)
     password.send_keys(pwd)
     print('login', time.time() - t)
-    try:
-        driver.find_element_by_name('ButtonLogin').click()
-        jw_url = "http://jwauth.cidp.edu.cn/NoMasterJumpPage.aspx?URL=JWGL"
-        driver.get(jw_url)
-        print('openpage', time.time() - t)
-    except:
-        return 0
+    # try:
+    driver.find_element_by_name('ButtonLogin').click()
+    jw_url = "http://jwauth.cidp.edu.cn/NoMasterJumpPage.aspx?URL=JWGL"
+    driver.get(jw_url)
+    print('openpage', time.time() - t)
+    # except:
+    #     return 0
     return driver
 
 
 def get_grade(driver):
     t = time.time()
-    mark_url = 'http://jw.cidp.edu.cn/Teacher/MarkManagement/StudentAverageMarkSearchFZ.aspx'
-    driver.get(mark_url)
+    driver.get('http://jw.cidp.edu.cn/Teacher/MarkManagement/StudentAverageMarkSearchFZ.aspx')
     print('openpage', time.time() - t)
     # 显性等待，(driver, 超时时长， 调用频率， 异常忽略)
     # WebDriverWait(driver, 15, 0.5).until(EC.frame_to_be_available_and_switch_to_it('year1'))
@@ -55,16 +55,19 @@ def get_grade(driver):
 
 def get_timetable(driver):
     t = time.time()
-    table_url = 'http://jw.cidp.edu.cn/Student/CourseTimetable/MyCourseTimeTable.aspx'
-    driver.get(table_url)
-    time.sleep(3)
-    term = driver.find_element_by_id('lblSemester').get_attribute('innerHTML')
+
+    driver.get('http://jw.cidp.edu.cn/Student/CourseTimetable/MyCourseTimeTable.aspx')
+
+    time.sleep(4)
+    # term = driver.find_element_by_id('lblSemester').get_attribute('innerHTML')
+
     iframe = driver.find_element_by_id('iframeTimeTable')
     driver.switch_to_frame(iframe)
+    Select(driver.find_element_by_id("ddlSemester")).select_by_value("58")
     table_html = driver.find_element_by_id('tableMain').get_attribute('innerHTML')
     print('find', time.time() - t)
     driver.close()
-    return term+table_html
+    return table_html
 
 
 def get_grade_result(html):
@@ -92,8 +95,9 @@ def get_grade_result(html):
 
 
 def get_timetable_result(html):
+    term = []
     result = re.compile(r'.*?<tr>(.*?)</tr>.*?', re.S).findall(html)
-    term = re.compile(r'(.*?)学期', re.S).findall(html)[0] + '学期'
+    # term = re.compile(r'(.*?)学期', re.S).findall(html)[0] + '学期'
     list = []
     class_list = []
     class_set = []
@@ -133,6 +137,8 @@ def get_timetable_result(html):
                 dict['color'] = random.randint(0, 12)
 
                 if (len(cname) == 2):
+                    dict['teacher2'] = teacher[1]
+                    dict['class_name2'] = cname[1]
                     dict['class_room2'] = room[1]
                     dict['building2'] = building[1]
                     dict['week_info2'] = week[1]
@@ -144,6 +150,12 @@ def get_timetable_result(html):
     # 遍历分布的二维数组，将其与课程对应
     for a in class_set:
         classes = []
+
+        # 填满周六 周日
+        if (len(a) <= 7):
+            for x in range(7 - len(a)):
+                a.append('1')
+
         for i in a:
 
             # 2 为有课位置，将其代替成数据，1 放入空 dict
@@ -161,7 +173,9 @@ def get_timetable_result(html):
     search_result = []
 
     # 用7个 list 来装七天的数据， 将按时间分布的信息转置成按星期分布
-    for i in range(7):
+    # 改进根据 week 长度决定 list 避免出错
+
+    for i in range(len(a)):
         m = []
         for a in week:
             m.append(a[c])

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="ubuntu@140.143.17.162:22">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="140.143.17.162">
     <serverData>
       <paths name="140.143.17.162">
         <serverdata>
           <mappings>
-            <mapping deploy="/home" local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="ubuntu@140.143.17.162:22">
-        <serverdata>
-          <mappings>
-            <mapping deploy="/var/django/wechat" local="$PROJECT_DIR$" web="wx.tomwang.club" />
+            <mapping deploy="/var/django/wechat" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

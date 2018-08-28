@@ -7,11 +7,22 @@ import time
 
 # Create your views here.
 
+def index(request):
+    # data = json.loads(request.body.decode('utf-8'))
+    # sid = data.get('sid')
+    # pwd = data.get('sid')
+    # print(sid, pwd)
+    return HttpResponse('Django test')
 
-def grade(request, sid, pwd):
+
+def grade(request):
     listData1 = []
     listData2 = []
     data = []
+    body = json.loads(request.body.decode('utf-8'))
+    sid = body.get('sid')
+    pwd = body.get('pwd')
+    print(sid,pwd)
 
     try:
         try:
@@ -34,11 +45,9 @@ def grade(request, sid, pwd):
     else:
         listData1 = []
         listData2 = []
-    print(listData1)
-    print(listData2)
 
     print(sid, pwd)
-    time.sleep(5)
+    print(listData1,listData2)
 
     return HttpResponse(json.dumps({
         'list1': listData1,
@@ -50,21 +59,26 @@ def calendar(request, sid, pwd):
     pass
 
 
-def time_table(request, sid, pwd):
-    try:
-        html = get_timetable(open_page(sid, pwd))
-        data = get_timetable_result(html)
-    except:
-        return HttpResponse(
-            json.dumps({
-                'statusCode': 300
-            })
-        )
+def time_table(request):
+    # try:
+    body = json.loads(request.body.decode('utf-8'))
+    sid = body.get('sid')
+    pwd = body.get('pwd')
+    print(sid,pwd)
+    html = get_timetable(open_page(sid, pwd))
+    term, data = get_timetable_result(html)
+    # except:
+    #     return HttpResponse(
+    #         json.dumps({
+    #             'statusCode': 300
+    #         })
+    #     )
 
-    print(sid, pwd)
+    print(data)
 
     return HttpResponse(
         json.dumps({
+            'term': term,
             'data': data
         })
     )
