@@ -50,6 +50,7 @@ def get_grade(driver):
     # driver.find_element_by_id('year1').click()
     # HTML = driver.find_element_by_id('DivCon2')
     driver.close()
+    driver.quit()
     return grade_html
 
 
@@ -64,10 +65,12 @@ def get_timetable(driver):
     table_html = driver.find_element_by_id('tableMain').get_attribute('innerHTML')
     print('find', time.time() - t)
     driver.close()
+    driver.quit()
     return term+table_html
 
 
 def get_grade_result(html):
+
     result = re.compile(r'.*?([\u4e00-\u9fa5]+).*?<tr><td(.*?)</tbody></table>.*?', re.S).findall(html)
 
     term = []
@@ -141,9 +144,17 @@ def get_timetable_result(html):
     n = 0
     week = []
 
+
+
     # 遍历分布的二维数组，将其与课程对应
     for a in class_set:
         classes = []
+
+        # 填满周六，周日
+        if (len(a) <= 7):
+            for x in range(7 - len(a)):
+                a.append('1')
+
         for i in a:
 
             # 2 为有课位置，将其代替成数据，1 放入空 dict
@@ -161,7 +172,7 @@ def get_timetable_result(html):
     search_result = []
 
     # 用7个 list 来装七天的数据， 将按时间分布的信息转置成按星期分布
-    for i in range(7):
+    for i in range(len(a)):
         m = []
         for a in week:
             m.append(a[c])
