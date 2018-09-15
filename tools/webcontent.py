@@ -26,15 +26,11 @@ class Driver:
         self.driver = driver
         print('openpage', time.time() - t)
 
-
-
     def open_page(self):
         t = time.time()
         jw_url = "http://jwauth.cidp.edu.cn/NoMasterJumpPage.aspx?URL=JWGL"
         self.driver.get(jw_url)
         print('login', time.time() - t)
-
-
 
     def get_grade(self):
         t = time.time()

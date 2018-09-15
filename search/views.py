@@ -13,7 +13,7 @@ def index(request):
     # sid = data.get('sid')
     # pwd = data.get('sid')
     # print(sid, pwd)
-    return HttpResponse('Django test')
+    return HttpResponse('Django test Welcome')
 
 
 def grade(request):
