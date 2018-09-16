@@ -5,11 +5,11 @@ from bs4 import BeautifulSoup
 
 class GetNews:
 
-    def __init__(self, url):
-        self.url = url
+    # def __init__(self, url):
+    #     self.url = url
 
-    def get_html(self):
-        r = requests.get(self.url)
+    def get_html(self, url):
+        r = requests.get(url)
         r.encoding = 'UTF-8'
         return r.text
 
@@ -33,12 +33,10 @@ class GetNews:
         print(news_list)
         return news_list
 
-    @ staticmethod
-    def get_news_content(url):
+    def get_news_content(self, url):
         page = requests.get(url)
         page.encoding = 'UTF-8'
         html = page.text
-        public_time = re.compile(r'.*?<meta name="PubDate" content="(.*?)">').findall(html)
         soup = BeautifulSoup(html, 'lxml')
         page_list = []
         for p in soup.find_all('p'):
@@ -58,7 +56,44 @@ class GetNews:
             page_content = str.join(p.stripped_strings)
             page_list.append({'content': page_content})
 
-        return page_list[:-4], public_time
+        return page_list[:-4]
+
+    def get_page_content(self, url):
+        r = requests.get(url)
+        r.encoding = 'UTF-8'
+        html = r.text
+        # print(html)
+        news_list = []
+        title = re.compile(r'<meta name="ArticleTitle" content="(.*?)">').findall(html)[0]
+        pub_time = re.compile(r'<meta name="PubDate" content="(.*?)">').findall(html)[0]
+        print('get:', title, url)
+        soup = BeautifulSoup(html, 'lxml')
+        page_list = []
+        pic_list = []
+        for p in soup.find_all('p'):
+            str = ''
+            # print(p)
+            # 拿到 a 标签里的图片链接
+            # print(str.join(p.stripped_strings))
+            try:
+                for a in p.find_all('a'):
+                    pic_url = 'http://www.cidp.edu.cn' + a['href']
+                    page_list.append({'pic': pic_url})
+                    pic_list.append(pic_url)
+                    continue
+            except:
+                continue
+
+            # 段落文字
+            page_content = str.join(p.stripped_strings)
+            page_list.append({'content': page_content})
+        page_content = page_list[:-4]
+        news_list.append({'title': title, 'pub_time': pub_time, 'url': url,
+                          'page_content': page_content, 'pic_list': pic_list})
+        # print(news_list)
+        return news_list
+
+
 
     # def save_data(news_list):
     #     db = pymysql.connect("localhost:3306", "root", "pengyu1998", "wechatdb")

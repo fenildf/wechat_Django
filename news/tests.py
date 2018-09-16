@@ -5,6 +5,5 @@ from tools.IdriverManage import Search
 
 # Create your tests here.
 
-g = GetNews('http://www.fzxy.edu.cn/col/col52/index.html?uid=17343&pageNum=2')
-html = g.get_html()
-g.get_page(html)
+g = GetNews()
+g.get_page_content('http://www.cidp.edu.cn/art/2018/6/11/art_52_87573.html')
