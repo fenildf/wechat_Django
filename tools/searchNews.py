@@ -33,6 +33,7 @@ class GetNews:
         print(news_list)
         return news_list
 
+
     def get_news_content(self, url):
         page = requests.get(url)
         page.encoding = 'UTF-8'
@@ -58,6 +59,8 @@ class GetNews:
 
         return page_list[:-4]
 
+
+    # 直接获取单页内容
     def get_page_content(self, url):
         r = requests.get(url)
         r.encoding = 'UTF-8'

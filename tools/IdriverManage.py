@@ -17,7 +17,6 @@ class Search:
         finally:
             d.driver.quit()
 
-
     def term_grade(self, id, pwd):
         listData1 = []
         listData2 = []

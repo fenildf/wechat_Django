@@ -2,8 +2,10 @@ from django.test import TestCase
 from tools.searchNews import GetNews
 from tools.IdriverManage import Search
 # from news.models import News
+from search import models
 
 # Create your tests here.
 
 g = GetNews()
-g.get_page_content('http://www.cidp.edu.cn/art/2018/6/11/art_52_87573.html')
+html = g.get_page_content('www.cidp.edu.cn/art/2018/9/13/art_52_89878.html')
+g.get_page(html)

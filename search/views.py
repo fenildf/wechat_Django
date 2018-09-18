@@ -79,17 +79,18 @@ def calendar(request, sid, pwd):
 
 
 def time_table(request):
+    body = json.loads(request.body.decode('utf-8'))
+    sid = body.get('sid')
+    pwd = body.get('pwd')
+    term = []
+    result = []
+    print(sid, pwd, 'timetable')
+    d = Driver(sid, pwd)
     try:
-        body = json.loads(request.body.decode('utf-8'))
-        sid = body.get('sid')
-        pwd = body.get('pwd')
-        print(sid, pwd)
-        d = Driver(sid, pwd)
         try:
             d.open_page()
-
             html = d.get_timetable()
-            term, result = d.get_timetable_result(html)
+            result = d.get_timetable_result(html)
             print(result)
             return HttpResponse(
                 json.dumps({
@@ -103,14 +104,14 @@ def time_table(request):
                     'statusCode': 300,
                 }))
         except TypeError:
-            print('获取成绩失败')
+            print('获取成绩失败, type error')
             return HttpResponse(
                 json.dumps({
                     'statusCode': 500,
                     'info': '获取成绩失败，请稍后重试'
                 }))
         except exceptions.WebDriverException:
-            print('selenium error2')
+            print('selenium error2, dean problem')
             return HttpResponse(
                 json.dumps({
                     'statusCode': 500,
@@ -120,10 +121,12 @@ def time_table(request):
             print('销毁进程')
             d.driver.quit()
     except exceptions.WebDriverException:
-        print('selenium error1')
+        print('selenium error1, network problem')
         return HttpResponse(
             json.dumps({
                 'statusCode': 500,
                 'info': '服务器出现了问题'
             }))
-
+    finally:
+        print('销毁进程')
+        d.driver.quit()

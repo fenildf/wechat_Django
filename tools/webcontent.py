@@ -85,10 +85,9 @@ class Driver:
         return term
 
     def get_timetable_result(self, html):
-        term = []
-        result = []
         result = re.compile(r'.*?<tr>(.*?)</tr>.*?', re.S).findall(html)
-        # term = re.compile(r'(.*?)学期', re.S).findall(html)[0] + '学期'
+        # term = re.compile(r'(.*?)学期', re.S).findall(html)[0]+'学期'
+        term = []
         list = []
         class_list = []
         class_set = []
@@ -97,7 +96,7 @@ class Driver:
 
         # 留下有用行
         for i in result:
-            if (m in n):
+            if m in n:
                 list.append(i)
             m += 1
 
@@ -107,68 +106,84 @@ class Driver:
             class_set.append(class_name)
 
             for content in list:
-                data = re.compile(r'.*?<td rowspan="2">(.*?)</td>', re.S).findall(content)
-                a = 0
+                data = re.compile(r'.*?<td rowspan="[2-4]">(.*?)</td>', re.S).findall(content)
+                # print('data', data)
                 for i in data:
                     dict = {}
-                    a += 1
                     cname = re.compile(r'class="spLUName">《(.*?)》</span>').findall(i)
-                    week = re.compile(r'class="spWeekInfo">(.*?)</span>').findall(i)
+                    week_info = re.compile(r'class="spWeekInfo">(.*?)</span>').findall(i)
                     room = re.compile(r'class="spClassroom">(.*?)</span>').findall(i)
                     teacher = re.compile(r'class="spTeacherName">(.*?)</span>').findall(i)
                     building = re.compile(r'class="spBuilding">(.*?)</span>').findall(i)
                     method = re.compile(r'class="spDelymethodName.*?>(.*?)</span>').findall(i)
 
+                    # print(cname, room, week,teacher)
                     dict['class_name'] = cname[0]
                     dict['class_room'] = room[0]
-                    dict['week_info'] = week[0]
+                    dict['week_info'] = week_info[0]
                     dict['teacher'] = teacher[0]
                     dict['building'] = building[0]
                     dict['method'] = method[0]
                     dict['color'] = random.randint(0, 12)
 
-                    if (len(cname) == 2):
+                    if len(cname) == 2:
                         dict['class_room2'] = room[1]
                         dict['building2'] = building[1]
-                        dict['week_info2'] = week[1]
+                        dict['week_info2'] = week_info[1]
                     class_list.append(dict)
 
+        m = 0
         n = 0
         week = []
-
-
-
         # 遍历分布的二维数组，将其与课程对应
         for a in class_set:
+            # q是计数 a 中 list 的下标，w是class_set中a的下标
+            q = 0
+            w = 0
             classes = []
 
-            # 填满周六，周日
-            if (len(a) <= 7):
+            for i in a:
+                if i == '4':
+                    class_set[m + 1].insert(q, 'x')
+                q += 1
+
+            # 填满周六 周日
+            if 7 >= len(a):
                 for x in range(7 - len(a)):
                     a.append('1')
 
+            # print('len', a)
             for i in a:
-
-                # 2 为有课位置，将其代替成数据，1 放入空 dict
-                if (i == '2'):
+                # print(i)
+                # 2 为有课位置，将其代替成数据，1 放入空 dict, 4是两节大课的位置
+                if i == '2' or i == '4':
                     class_dict = class_list[n]
                     n += 1
+
+                # 当位置为x，数据参照上一个list相同位置
+                elif i == 'x':
+                    class_dict = week[m-1][w]
                 else:
-                    class_dict = {}
+                    class_dict = {'class': 'none'}
                 classes.append(class_dict)
 
-            # 分布的数组变成了一周的数据
+                w += 1
+            m += 1
             week.append(classes)
 
-        c = 0
-        search_result = []
+            # 分布的数组变成了一周的数据
 
+        # print(week)
+        search_result = []
         # 用7个 list 来装七天的数据， 将按时间分布的信息转置成按星期分布
+        c = 0
         for i in range(len(a)):
             m = []
             for a in week:
                 m.append(a[c])
             search_result.append(m)
             c += 1
+        grade_result = search_result
+        print('qwewqe', grade_result)
 
-        return term, search_result
+        return grade_result
