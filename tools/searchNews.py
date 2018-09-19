@@ -3,18 +3,71 @@ import re
 from bs4 import BeautifulSoup
 
 
+
+
 class GetNews:
+    data = {
+        'col': '1',
+        'appid': '1',
+        'webid': '1',
+        'path': '/',
+        'columnid': '',  # 321 为通知，52 为新闻，4662 为学术
+        'sourceContentType': '1',
+        'unitid': '17343',
+        'webname': '防灾科技学院',
+        'permissiontype': '0',
+    }
 
-    # def __init__(self, url):
-    #     self.url = url
+    # 首页刷新和加载
+    def change_page(self, num, page_type):
+        if num == 1:
+            num = 1
+        else:
+            num += 10
+        url = 'http://fzxy.edu.cn/module/web/jpage/dataproxy.jsp?startrecord={start}&endrecord={end}&perpage=20' \
+            .format(start=str(num), end=str(num + 30))
 
-    def get_html(self, url):
-        r = requests.get(url)
+        self.data['columnid'] = page_type
+        r = requests.post(url, data=self.data)
         r.encoding = 'UTF-8'
         return r.text
 
+    # 得到新闻列表
+    def get_page_url(self, html):
+        news_list = []
+        for news in re.compile(r'.*?<tr(.*?)</tr>.*?').findall(html)[5:-1]:
+            # print(news)
+
+            # 新闻标题，链接
+            for result in re.compile(r'.*?href=\'(.*?).html\'.*?title=\'(.*?)\'').findall(news):
+                title = result[1]
+                url = 'http://www.cidp.edu.cn{u}.html'.format(u=result[0])
+                try:
+                    print('get:', title, url)
+                    pub_time, content = self.get_info(url)
+                except requests.exceptions:
+                    continue
+
+                news_list.append({'url': url, 'pub_time': pub_time, 'title': title, 'page_content': content})
+        return news_list
+
+    # 列表梗概
+    def get_info(self, url):
+        page = requests.get(url)
+        page.encoding = 'UTF-8'
+        html = page.text
+        public_time = re.compile(r'.*?<meta name="PubDate" content="(.*?)\s\d+:\d+">').findall(html)[0]
+        # content = re.compile(r'.*?16px;">(.*?)</span><span.*?').findall(html)
+        soup = BeautifulSoup(html, 'lxml')
+        content = ''
+        for p in soup.find_all('p')[:1]:
+            str = ''
+            page_content = str.join(p.stripped_strings)
+            content += page_content
+        return public_time, content
+
+
     def get_page(self, html):
-        print(html)
         news_list = []
         for news in re.compile(r'.*?<tr(.*?)</tr>.*?').findall(html)[5:-1]:
             # print(news)
@@ -95,6 +148,11 @@ class GetNews:
                           'page_content': page_content, 'pic_list': pic_list})
         # print(news_list)
         return news_list
+
+    def get_new_list(self, page, news_type):
+        pass
+
+
 
 
 
