@@ -20,10 +20,29 @@ def content(request):
 def news_list(request):
     page_num = request.GET['page_num']
     page_type = request.GET['type']
-    html = g.change_page(int(page_num), page_type)
-    result_list = g.get_page_url(html)
-    print(result_list)
-    return HttpResponse(json.dumps({
-        'news_list': result_list
-    }))
+    print(page_num)
+    try:
+        html = g.change_page(page_num, page_type)
+        result_list = g.get_page_url(html)
+        # print(result_list)
+        return HttpResponse(json.dumps({
+            'news_list': result_list
+        }))
+    except AttributeError:
+        return HttpResponse(
+            json.dumps({
+            'page_num':int(page_num),
+        }))
+    except ValueError:
+        return HttpResponse(
+            json.dumps({
+                'page_num': int(page_num),
+            }))
+    except BaseException:
+        return HttpResponse(
+            json.dumps({
+                'page_num': int(page_num),
+            }))
+
+
 

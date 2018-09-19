@@ -7,5 +7,5 @@ from search import models
 # Create your tests here.
 
 g = GetNews()
-html = g.get_page_content('www.cidp.edu.cn/art/2018/9/13/art_52_89878.html')
+html = g.get_page('http://211.71.233.21/col/col321/index.html?uid=17343&pageNum=1')
 g.get_page(html)

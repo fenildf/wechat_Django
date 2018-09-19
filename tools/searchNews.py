@@ -20,17 +20,14 @@ class GetNews:
 
     # 首页刷新和加载
     def change_page(self, num, page_type):
-        if num == 1:
-            num = 1
-        else:
-            num += 10
-        url = 'http://fzxy.edu.cn/module/web/jpage/dataproxy.jsp?startrecord={start}&endrecord={end}&perpage=20' \
-            .format(start=str(num), end=str(num + 30))
 
-        self.data['columnid'] = page_type
-        r = requests.post(url, data=self.data)
-        r.encoding = 'UTF-8'
-        return r.text
+            url = 'http://fzxy.edu.cn/module/web/jpage/dataproxy.jsp?startrecord={start}&endrecord={end}&perpage=20' \
+                .format(start=str(num), end=str(int(num) + 19))
+
+            self.data['columnid'] = page_type
+            r = requests.post(url, data=self.data)
+            r.encoding = 'UTF-8'
+            return r.text
 
     # 得到新闻列表
     def get_page_url(self, html):
@@ -41,7 +38,7 @@ class GetNews:
             # 新闻标题，链接
             for result in re.compile(r'.*?href=\'(.*?).html\'.*?title=\'(.*?)\'').findall(news):
                 title = result[1]
-                url = 'http://www.cidp.edu.cn{u}.html'.format(u=result[0])
+                url = 'http://www.fzxy.edu.cn{u}.html'.format(u=result[0])
                 try:
                     print('get:', title, url)
                     pub_time, content = self.get_info(url)
@@ -54,20 +51,26 @@ class GetNews:
     # 列表梗概
     def get_info(self, url):
         page = requests.get(url)
-        page.encoding = 'UTF-8'
+        page.encoding = 'utf-8-sig'
         html = page.text
-        public_time = re.compile(r'.*?<meta name="PubDate" content="(.*?)\s\d+:\d+">').findall(html)[0]
+        # print(html)
+        public_time = re.compile(r'.*?<meta name="PubDate" content="(.*?)\s\d+:\d+">').findall(html)
         # content = re.compile(r'.*?16px;">(.*?)</span><span.*?').findall(html)
-        soup = BeautifulSoup(html, 'lxml')
+        soup = BeautifulSoup(html[:10000], 'lxml')
+        # print(soup)
         content = ''
         for p in soup.find_all('p')[:1]:
-            str = ''
-            page_content = str.join(p.stripped_strings)
+            item = ''
+            page_content = item.join(p.stripped_strings)
             content += page_content
+            # print(content)
         return public_time, content
 
 
-    def get_page(self, html):
+    def get_page(self, url):
+        page = requests.get(url)
+        page.encoding = 'utf-8-sig'
+        html = page.text
         news_list = []
         for news in re.compile(r'.*?<tr(.*?)</tr>.*?').findall(html)[5:-1]:
             # print(news)
@@ -79,18 +82,19 @@ class GetNews:
                 try:
                     print('get:', title, url)
                     page_content, pub_time = self.get_news_content(url)
-                except requests.exceptions:
+                except:
                     continue
 
                 news_list.append({'url': url, 'title': title, 'page_content': page_content, 'pub_time': pub_time})
-        print(news_list)
+        # print(news_list)
         return news_list
 
 
     def get_news_content(self, url):
         page = requests.get(url)
-        page.encoding = 'UTF-8'
+        page.encoding = 'utf-8-sig'
         html = page.text
+        pub_time = re.compile(r'<meta name="PubDate" content="(.*?)">').findall(html)[0]
         soup = BeautifulSoup(html, 'lxml')
         page_list = []
         for p in soup.find_all('p'):
@@ -110,13 +114,13 @@ class GetNews:
             page_content = str.join(p.stripped_strings)
             page_list.append({'content': page_content})
 
-        return page_list[:-4]
+        return page_list[:-4], pub_time
 
 
     # 直接获取单页内容
     def get_page_content(self, url):
         r = requests.get(url)
-        r.encoding = 'UTF-8'
+        r.encoding = 'utf-8-sig'
         html = r.text
         # print(html)
         news_list = []
